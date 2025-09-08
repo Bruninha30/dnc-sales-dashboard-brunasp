@@ -22,3 +22,4 @@ export default tseslint.config([
     },
   },
 ])
+const nextConfig = { transpilePackages: ['@emotion/styled'] }

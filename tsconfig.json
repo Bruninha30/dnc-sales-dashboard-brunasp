@@ -4,6 +4,7 @@
     "paths": {
       "@*": ["src/*"]
     },
+    "compilerOptions": { "paths": { "@/*": ["./*"] } }
   },
   "files": [],
   "references": [
