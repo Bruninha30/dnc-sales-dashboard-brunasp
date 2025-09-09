@@ -14,67 +14,64 @@ function Login() {
   const navigate = useNavigate()
   const [message, setMessage] = useState<{
     msg: string
-    type: 'error' | 'sucess'
+    type: 'error' | 'success'
   } | null>(null)
 
-  const handleLogin = (event: React.FormEvent) => {
-    event.preventDefault() // Previne o comportamento padrão do formulário
+  const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
 
-    // Aqui você pode adicionar a lógica de autenticação
-    // Por exemplo, verificar credenciais, fazer chamada para API, etc.
-
-    // Simulando um login bem-sucedido
     setMessage({
       msg: 'Login realizado com sucesso!',
-      type: 'sucess',
+      type: 'success',
     })
 
-    // Navegar para a página home após 1 segundo
     setTimeout(() => {
       navigate('/home')
     }, 1000)
   }
 
   return (
-    <>
-      <Box>
-        <Grid container>
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            sx={{ alignItems: 'center', display: 'flex', height: '100vh' }}
-          >
-            <Container maxWidth="sm">
-              <Box sx={{ marginBottom: pxToRem(24) }}>
-                <Logo height={41} width={100} />
-              </Box>
+    <Box>
+      <Grid container>
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          sx={{ alignItems: 'center', display: 'flex', height: '100vh' }}
+        >
+          <Container maxWidth="sm">
+            <Box sx={{ marginBottom: pxToRem(24) }}>
+              <Logo height={41} width={100} />
+            </Box>
 
-              <Box sx={{ marginBottom: pxToRem(24) }}>
-                <StyledH1>Bem-Vindo</StyledH1>
-                <Styledp>Digite sua senha e email para logar</Styledp>
-              </Box>
+            <Box sx={{ marginBottom: pxToRem(24) }}>
+              <StyledH1>Bem-Vindo</StyledH1>
+              <Styledp>Digite sua senha e email para logar</Styledp>
+            </Box>
 
-              <FormComponent
-                onSubmit={handleLogin}
-                inputs={[
-                  { type: 'email', placeholder: 'Email', required: true },
-                  { type: 'password', placeholder: 'Senha', required: true },
-                ]}
-                buttons={[
-                  { className: 'primary', type: 'submit', children: 'Login' },
-                ]}
-                message={message || undefined}
-              />
-            </Container>
-          </Grid>
-
-          <Grid item sm={6} sx={{ display: { xs: 'none', sm: 'block' } }}>
-            <BannerImage />
-          </Grid>
+            <FormComponent
+              onSubmit={handleLogin}
+              inputs={[
+                { type: 'email', placeholder: 'Email', required: true },
+                { type: 'password', placeholder: 'Senha', required: true },
+              ]}
+              buttons={[
+                {
+                  className: 'primary',
+                  type: 'submit',
+                  children: 'Login',
+                },
+              ]}
+              message={message || undefined}
+            />
+          </Container>
         </Grid>
-      </Box>
-    </>
+
+        <Grid item sm={6} sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <BannerImage />
+        </Grid>
+      </Grid>
+    </Box>
   )
 }
 
