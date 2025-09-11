@@ -1,5 +1,5 @@
 import { Avatar, Box } from '@mui/material'
-import { Logo, StyledH2, StyledSpan } from '@/components'
+import { StyledH2, StyledSpan } from '@/components'
 import { pxToRem } from '@/utils'
 import type { AvatarsListProps } from '@/types'
 
