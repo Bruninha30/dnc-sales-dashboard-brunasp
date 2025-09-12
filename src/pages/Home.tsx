@@ -1,7 +1,6 @@
 import { AvatarsList, CardComponent, CustomTable, Header } from '@/components'
 import { Container } from '@mui/material'
 import { currencyConverter } from '@/utils'
-import { IoHeartDislikeSharp } from 'react-icons/io5'
 
 function Home() {
   const mockListData = [
